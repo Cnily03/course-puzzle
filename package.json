@@ -1,0 +1,39 @@
+{
+  "name": "cpuzzle",
+  "version": "0.1.0",
+  "description": "拼图游戏",
+  "scripts": {
+    "test": "set NODE_ENV=development && webpack serve",
+    "build": "webpack",
+    "make": "set OUTPUT_DIR=web && webpack && electron-builder --config ./electron-builder.config.js --publish=never && rm -rf web"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "babel-loader": "^9.1.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "html-minifier-terser": "^7.2.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "electron": "^26.3.0",
+    "electron-builder": "^24.6.4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=16.18.0"
+  }
+}

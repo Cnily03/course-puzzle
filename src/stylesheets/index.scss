@@ -1,0 +1,188 @@
+.cpuzzle {
+    position: relative;
+    * {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+/* img-selector */
+.cpuzzle-img-selector {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 300px;
+    padding: 0 2em;
+    line-height: 300px;
+    border: 2px dashed;
+    border-radius: 5px;
+    color: #aaa;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* fix cover some edge on small device */
+@media (max-width: 768px) {
+    .cpuzzle-img-selector {
+        box-sizing: border-box;
+        width: 90%;
+    }
+}
+
+/* level-selector */
+.cpuzzle-level-selector {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 450px;
+    color: gray;
+    text-align: center;
+
+    & > ul:not(.custom-input) {
+        width: 30%;
+        margin: 1.5em auto;
+        padding: 0;
+        list-style: none;
+        font-size: 1.2em;
+    }
+
+    & > ul:not(.custom-input) > li {
+        margin: 0.5em 0;
+        padding: 0.5em;
+        color: white;
+        border-radius: 0.2em;
+        background-image: linear-gradient(hsla(0, 0%, 100%, 0.4), hsla(0, 0%, 100%, 0));
+        box-shadow: 0.05em 0.08em 0.2em gray;
+        cursor: pointer;
+    }
+
+    & > ul:not(.custom-input) > li:hover {
+        background-image: linear-gradient(hsla(0, 0%, 100%, 0.1), hsla(0, 0%, 0%, 0.2));
+    }
+
+    & > ul:not(.custom-input) > li:first-child {
+        background-color: #28a745;
+    }
+    & > ul:not(.custom-input) > li:nth-child(2) {
+        background-color: #007bff;
+    }
+    & > ul:not(.custom-input) > li:nth-child(3) {
+        background-color: #dc3545;
+    }
+    & > ul:not(.custom-input) > li:nth-child(4) {
+        background-color: orange;
+    }
+
+    & .custom-input {
+        display: none;
+        margin: 0;
+        padding: 0.5em;
+        list-style: none;
+        border: 1px solid #eee;
+        border-radius: 5px;
+    }
+    & .custom-input > li {
+        margin: 0.5em 0;
+        padding: 0 0.5em;
+    }
+    & .custom-input > li > span {
+        display: inline-block;
+        width: 4em;
+        padding-right: 1em;
+        text-align: right;
+    }
+    & .custom-input > li > button {
+        border-radius: 5px;
+        padding: 0.2em 0.5em;
+    }
+}
+
+/* game-panel */
+.cpuzzle-game-panel {
+    position: absolute;
+    top: 50%;
+    z-index: 20;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+    border-radius: 5px;
+    background: gray;
+    text-align: center;
+}
+
+.cpuzzle-game-panel > li {
+    line-height: 50px;
+}
+
+/* game-playground */
+.cpuzzle-game-playground {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    & > .pause {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        background: white;
+    }
+
+    & > .playground {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0;
+    }
+
+    & > .playground > .piece-wrapper {
+        display: inline-block;
+        cursor: move;
+    }
+
+    & > .playground > .piece-wrapper > .piece {
+        outline: 3px solid #eee;
+        outline-offset: -3px;
+    }
+
+    & > .playground > .drag-over > .piece {
+        outline-style: dashed;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    height: 6em;
+    width: 6em;
+    border: 1em solid #eee;
+    border-top-color: limegreen;
+    border-bottom-color: limegreen;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
